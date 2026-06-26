@@ -1,158 +1,792 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Naqi | Graphic Designer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>ANCREATIVES | Graphic & 3D Artist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==========================================
+           1. iOS SYSTEM DESIGN & LIQUID GLASS VARIATION
+           ========================================== */
+        :root {
+            --bg-base: #f4f4f6;         
+            --bg-glass: rgba(255, 255, 255, 0.45); 
+            --bg-glass-active: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.65); 
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04), 
+                            0 1px 2px 0 rgba(0, 0, 0, 0.02);
+            
+            --text-main: #1c1c1e;       
+            --text-muted: #636366;      
+            --text-dim: #8e8e93;        
+            --accent-blue: #007aff;     
+            
+            --font-family: 'Plus Jakarta Sans', sans-serif;
+            --transition-ios: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-ios-sm: 14px;
+            --radius-ios-md: 22px;      
+            --radius-ios-lg: 32px;      
+            --padding-desktop: 8%;
+            --padding-mobile: 5%;
+        }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+        /* ==========================================
+           2. GLOBAL RESETS & BASE LAYER
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-background:#111;
-color:white;
-}
+        html {
+            scroll-behavior: smooth;
+            font-family: var(--font-family);
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            width: 100%;
+        }
 
-section{
-padding:80px 10%;
-}
+        body {
+            background: radial-gradient(circle at 80% 20%, rgba(0, 122, 255, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 10% 70%, rgba(163, 144, 124, 0.06) 0%, transparent 50%),
+                        var(--bg-base);
+            line-height: 1.5;
+        }
 
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-ios);
+        }
 
-.hero h1{
-font-size:4rem;
-margin-bottom:15px;
-}
+        /* ==========================================
+           3. LIQUID GLASS NAVIGATION BAR
+           ========================================== */
+        .navbar-container {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            padding: 0 var(--padding-desktop);
+            z-index: 1000;
+        }
 
-.hero p{
-font-size:1.2rem;
-max-width:600px;
-}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 28px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(24px) saturate(190%);
+            -webkit-backdrop-filter: blur(24px) saturate(190%);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            box-shadow: var(--glass-shadow);
+        }
 
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 25px;
-background:white;
-color:black;
-text-decoration:none;
-font-weight:bold;
-border-radius:5px;
-}
+        .nav-logo {
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
 
-h2{
-margin-bottom:30px;
-font-size:2rem;
-}
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 4px;
+            border-radius: 40px;
+        }
 
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 30px;
+        }
 
-.card{
-background:#1e1e1e;
-padding:20px;
-border-radius:10px;
-}
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
+        .nav-socials {
+            display: flex;
+            gap: 8px;
+        }
 
-.gallery img{
-width:100%;
-border-radius:10px;
-}
+        .social-icon {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
 
-footer{
-text-align:center;
-padding:30px;
-background:#000;
-}
-</style>
+        .social-icon:hover {
+            color: #ffffff;
+            background: var(--text-main);
+            transform: scale(1.05);
+        }
+
+        /* ==========================================
+           4. HERO SECTION
+           ========================================== */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 160px var(--padding-desktop) 80px var(--padding-desktop);
+            gap: 40px;
+        }
+
+        .hero-content {
+            max-width: 55%;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -2.5px;
+            margin-bottom: 28px;
+        }
+
+        .tagline-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .tagline-box {
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            border: 1px solid var(--glass-border);
+            padding: 10px 20px;
+            border-radius: var(--radius-ios-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            box-shadow: var(--glass-shadow);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tagline-box::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 32px;
+            background: var(--text-main);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 40px;
+        }
+
+        .hero-avatar-wrapper {
+            width: 35%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .avatar-glow-ring {
+            width: clamp(240px, 25vw, 320px);
+            height: clamp(240px, 25vw, 320px);
+            border-radius: 50%;
+            padding: 8px;
+            background: var(--bg-glass);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .avatar-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1000&auto=format&fit=crop') center top no-repeat;
+            background-size: cover;
+            filter: grayscale(1) contrast(1.05);
+        }
+
+        /* ==========================================
+           5. ABOUT SECTION
+           ========================================== */
+        .about {
+            padding: 100px var(--padding-desktop);
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-ios-lg);
+            padding: 60px;
+            text-align: center;
+            max-width: 900px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .about-statement {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -1px;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+
+        .about-sub {
+            font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ==========================================
+           6. EXPERTISE FIELDS
+           ========================================== */
+        .skills {
+            padding: 100px var(--padding-desktop) 60px var(--padding-desktop);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 50px;
+            letter-spacing: -1.5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-ios-md);
+            padding: 36px 24px;
+            text-align: left;
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition-ios);
+        }
+
+        .skill-card:hover {
+            background: var(--bg-glass-active);
+            transform: scale(1.02);
+        }
+
+        .skill-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+            color: var(--text-main);
+        }
+
+        .skill-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           7. SOFTWARE ECOSYSTEM
+           ========================================== */
+        .tools-section {
+            padding: 40px var(--padding-desktop) 60px var(--padding-desktop);
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-ios-md);
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: var(--glass-shadow);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s;
+        }
+
+        .tool-card.reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tool-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+        }
+
+        .tool-icon-wrapper svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tool-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .loader-track {
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .loader-fill {
+            height: 100%;
+            width: 0%; 
+            background: var(--text-main);
+            border-radius: 4px;
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tool-card:hover {
+            background: var(--bg-glass-active);
+        }
+
+        /* ==========================================
+           8. MATRIX PROJECTS SHOWCASE (BORDERLESS)
+           ========================================== */
+        .portfolio-section {
+            padding: 60px var(--padding-desktop) 100px var(--padding-desktop);
+        }
+
+        .category-group {
+            margin-bottom: 80px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--text-main);
+        }
+
+        .category-line {
+            flex-grow: 1;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        /* 4-box continuous row grid configuration */
+        .gallery-row-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .gallery-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4; /* Standard vertical portrait format */
+            border-radius: var(--radius-ios-md);
+            overflow: hidden;
+            background: #e5e5ea;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition-ios);
+        }
+
+        .gallery-media {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .gallery-media img,
+        .gallery-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Interactive scale adjustments */
+        .gallery-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .gallery-box:hover .gallery-media img,
+        .gallery-box:hover .gallery-media video {
+            transform: scale(1.04);
+        }
+
+        /* ==========================================
+           9. RESPONSIVE COMPATIBILITY BREAKPOINTS
+           ========================================== */
+        @media (max-width: 1200px) {
+            :root { --padding-desktop: 5%; }
+            .gallery-row-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 140px;
+            }
+            .hero-content { max-width: 100%; display: flex; flex-direction: column; align-items: center; }
+            .tagline-container { justify-content: center; }
+            .hero-avatar-wrapper { width: 100%; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-row-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-container { top: 12px; padding: 0 var(--padding-mobile); }
+            .nav-links { display: none; }
+            .tools-grid { grid-template-columns: repeat(3, 1fr); }
+            .about-card { padding: 40px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .gallery-row-grid { grid-template-columns: 1fr; }
+            .avatar-glow-ring { width: 220px; height: 220px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<section class="hero">
-<h1>ALI NAQI</h1>
-<p>
-Graphic Designer specializing in logos,
-social media posts, posters and branding.
-</p>
-<a href="#portfolio" class="btn">View Work</a>
-</section>
+    <div class="navbar-container">
+        <nav class="navbar">
+            <div class="nav-logo">ANCREATIVES.</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+            <div class="nav-socials">
+                <a href="https://www.instagram.com/ancreatives_?" target="_blank" rel="noopener" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:hello@ancreatives.com" class="social-icon" aria-label="Contact Email">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
 
-<section>
-<h2>About Me</h2>
-<p>
-Graphic Designer with 1.5+ years of experience
-creating visual content for businesses and brands.
-</p>
-</section>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">ANCREATIVES.</h1>
+            <div class="tagline-container">
+                <div class="tagline-box">3D Concept Artist</div>
+                <div class="tagline-box">Poster Specialist</div>
+                <div class="tagline-box">Visual Director</div>
+            </div>
+            <a href="#projects" class="btn-primary">Explore Gallery</a>
+        </div>
+        <div class="hero-avatar-wrapper">
+            <div class="avatar-glow-ring">
+                <div class="avatar-image"></div>
+            </div>
+        </div>
+    </section>
 
-<section>
-<h2>Services</h2>
+    <section class="about" id="about">
+        <div class="about-card">
+            <span class="section-tag">About Me</span>
+            <h2 class="about-statement">
+                Building modern digital experiences, startups and creative web projects.
+            </h2>
+            <p class="about-sub">
+                I'm Ancreatives, a graphic designer and motion artist focused on crafting high-fidelity visuals, premium brand identities, and immersive digital interactions.
+            </p>
+        </div>
+    </section>
 
-<div class="services">
+    <section class="skills" id="skills">
+        <span class="section-tag">Expertise</span>
+        <h2 class="section-title">What I Do</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3 class="skill-title">Motion Design</h3>
+                <p class="skill-desc">Dynamic UI animations, kinetic typography, and complex functional transitions.</p>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-title">UI / UX</h3>
+                <p class="skill-desc">Modern minimalist high-end interface wireframing and prototyping.</p>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-title">Branding</h3>
+                <p class="skill-desc">Building coherent creative asset guidelines and premium asset kits.</p>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-title">Art Direction</h3>
+                <p class="skill-desc">Leading spatial interactive aesthetics and uniform asset layout systems.</p>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<h3>Logo Design</h3>
-</div>
+    <section class="tools-section" id="tools">
+        <span class="section-tag">Creative Ecosystem</span>
+        <h2 class="section-title" style="margin-bottom: 40px;">Software Pipeline</h2>
 
-<div class="card">
-<h3>Social Media Design</h3>
-</div>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon-wrapper">
+                    <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="512" height="512" rx="72" fill="#001d3d"/>
+                        <path d="M121 144H205C250 144 278 165 278 206C278 250 246 271 201 271H160V368H121V144ZM160 236H198C223 236 238 226 238 207C238 189 224 179 199 179H160V236Z" fill="#00c8ff"/>
+                        <path d="M292 291C292 258 316 238 356 238C391 238 410 252 411 276H376C374 266 366 262 356 262C344 262 333 269 333 285C333 318 412 309 412 364C412 400 385 419 347 419C311 419 288 401 288 373H323C324 386 335 393 348 393C364 393 372 384 372 371C372 337 292 344 292 291Z" fill="#00c8ff"/>
+                    </svg>
+                </div>
+                <div class="tool-name">Photoshop</div>
+                <div class="loader-track"><div class="loader-fill" data-progress="90%"></div></div>
+            </div>
 
-<div class="card">
-<h3>Banners & Posters</h3>
-</div>
+            <div class="tool-card">
+                <div class="tool-icon-wrapper">
+                    <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="512" height="512" rx="72" fill="#331000"/>
+                        <path d="M110 368L175 144H222L287 368H241L227 314H170L156 368H110ZM178 277H219L199 201H197L178 277Z" fill="#ff9a00"/>
+                        <path d="M312 216H347V368H312V216ZM310 160H349V193H310V160Z" fill="#ff9a00"/>
+                    </svg>
+                </div>
+                <div class="tool-name">Illustrator</div>
+                <div class="loader-track"><div class="loader-fill" data-progress="85%"></div></div>
+            </div>
 
-<div class="card">
-<h3>Brand Identity</h3>
-</div>
+            <div class="tool-card">
+                <div class="tool-icon-wrapper">
+                    <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="512" height="512" rx="72" fill="#1f0033"/>
+                        <path d="M110 368L175 144H222L287 368H241L227 314H170L156 368H110ZM178 277H219L199 201H197L178 277Z" fill="#d67fff"/>
+                        <path d="M303 144H401V179H342V234H394V268H342V333H404V368H303V144Z" fill="#d67fff"/>
+                    </svg>
+                </div>
+                <div class="tool-name">After Effects</div>
+                <div class="loader-track"><div class="loader-fill" data-progress="95%"></div></div>
+            </div>
 
-</div>
-</section>
+            <div class="tool-card">
+                <div class="tool-icon-wrapper">
+                    <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M181.333 0C139.547 0 105.778 33.7778 105.778 75.5556C105.778 117.333 139.547 151.111 181.333 151.111H256.889V75.5556C256.889 33.7778 223.12 0 181.333 0Z" fill="#F24E1E"/>
+                        <path d="M181.333 151.111C139.547 151.111 105.778 184.889 105.778 226.667C105.778 268.444 139.547 302.222 181.333 302.222C223.12 302.222 256.889 268.444 256.889 226.667V151.111H181.333Z" fill="#A259FF"/>
+                        <path d="M181.333 302.222C139.547 302.222 105.778 336 105.778 377.778C105.778 419.556 139.547 453.333 181.333 453.333C223.12 453.333 256.889 419.556 256.889 377.778V302.222H181.333Z" fill="#1ABC9C"/>
+                        <path d="M332.444 151.111C374.231 151.111 408 117.333 408 75.5556C408 33.7778 374.231 0 332.444 0C290.658 0 256.889 33.7778 256.889 75.5556V151.111H332.444Z" fill="#FF7262"/>
+                        <path d="M408 226.667C408 184.889 374.231 151.111 332.444 151.111C290.658 151.111 256.889 184.889 256.889 226.667C256.889 268.444 290.658 302.222 332.444 302.222C374.231 302.222 408 268.444 408 226.667Z" fill="#141414"/>
+                    </svg>
+                </div>
+                <div class="tool-name">Figma</div>
+                <div class="loader-track"><div class="loader-fill" data-progress="80%"></div></div>
+            </div>
 
-<section id="portfolio">
-<h2>Portfolio</h2>
+            <div class="tool-card">
+                <div class="tool-icon-wrapper">
+                    <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="512" height="512" rx="72" fill="#0a141d"/>
+                        <path d="M428 198C401 155 333 125 264 163L311 113C315 109 313 101 307 100C250 88 178 135 174 218C151 202 120 200 97 215C63 237 50 281 69 319C87 356 131 374 168 357L172 355C193 388 234 407 277 401C351 391 408 326 409 251C409 231 416 211 428 198ZM140 318C120 318 104 302 104 282C104 262 120 246 140 246C160 246 176 262 176 282C176 302 160 318 140 318ZM272 332C232 332 200 300 200 260C200 220 232 188 272 188C312 188 344 220 344 260C344 300 312 332 272 332Z" fill="#ea7600"/>
+                        <circle cx="272" cy="260" r="36" fill="#00a1ff"/>
+                    </svg>
+                </div>
+                <div class="tool-name">Blender</div>
+                <div class="loader-track"><div class="loader-fill" data-progress="75%"></div></div>
+            </div>
+        </div>
+    </section>
 
-<div class="gallery">
-<img src="work1.jpg">
-<img src="work2.jpg">
-<img src="work3.jpg">
-<img src="work4.jpg">
-</div>
+    <section class="portfolio-section" id="projects">
+        
+        <div class="category-group">
+            <div class="category-header">
+                <h2 class="category-title">Poster Designs</h2>
+                <div class="category-line"></div>
+            </div>
+            
+            <div class="gallery-row-grid">
+                <div class="gallery-box">
+                    <div class="gallery-media">
+                        <img src="C:\Users\Yousuf Traders\Pictures\Screenshot 2026-06-27 010847.png" alt="Poster Project" loading="lazy">
+                    </div>
+                </div>
 
-</section>
+                <div class="gallery-box">
+                    <div class="gallery-media">
+                        <img src="C:\Users\Yousuf Traders\Pictures\Screenshot+2026-06-27+010734.jpg" alt="Poster Project" loading="lazy">
+                    </div>
+                </div>
 
-<section>
-<h2>Contact</h2>
-<p>Email: your@email.com</p>
-<p>Instagram: @yourhandle</p>
-<p>WhatsApp: +92XXXXXXXXXX</p>
-</section>
+                <div class="gallery-box">
+                    <div class="gallery-media">
+                        <img src="C:\Users\Yousuf Traders\Pictures\Screenshot 2026-06-27 011223.png" alt="Poster Project" loading="lazy">
+                    </div>
+                </div>
 
-<footer>
-© 2026 Ali Naqi. All Rights Reserved.
-</footer>
+                <div class="gallery-box">
+                    <div class="gallery-media">
+                        <img src="C:\Users\Yousuf Traders\Pictures\Screenshot 2026-06-27 011305.png" alt="Poster Project" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="category-group">
+            <div class="category-header">
+                <h2 class="category-title">3D Art Work</h2>
+                <div class="category-line"></div>
+            </div>
+            
+            <div class="gallery-row-grid">
+                <div class="gallery-box">
+                    <div class="gallery-media">
+                        <video autoplay loop muted playsinline>
+                            <source src="YOUR_3D_VIDEO_LOOP_1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="gallery-box">
+                    <div class="gallery-media">
+                        <img src="YOUR_3D_IMAGE_2.jpg" alt="3D Artwork" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="gallery-box">
+                    <div class="gallery-media">
+                        <img src="YOUR_3D_IMAGE_3.jpg" alt="3D Artwork" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="gallery-box">
+                    <div class="gallery-media">
+                        <img src="YOUR_3D_IMAGE_4.jpg" alt="3D Artwork" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= (sectionTop - 240)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        const toolsGrid = document.getElementById('tools');
+        const toolCards = document.querySelectorAll('.tool-card');
+
+        const toolObserverOptions = {
+            root: null,
+            threshold: window.innerWidth < 768 ? 0.1 : 0.2
+        };
+
+        const toolObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    toolCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('reveal-active');
+                            const progressLine = card.querySelector('.loader-fill');
+                            const targetProgress = progressLine.getAttribute('data-progress');
+                            
+                            setTimeout(() => {
+                                progressLine.style.width = targetProgress;
+                            }, 200);
+                        }, index * 100); 
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, toolObserverOptions);
+
+        toolObserver.observe(toolsGrid);
+    </script>
 </body>
 </html>
